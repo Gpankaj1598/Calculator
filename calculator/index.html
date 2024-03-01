@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            font-family: sans-serif;
+            background-color: #ecf0f3;
+        }
+
+         h1{
+            margin-left: 25%;
+            margin-top: 50px;
+            font-family: 'Times New Roman', Times, serif;
+        } 
+
+        .contanier{
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ecf0f3;
+        }
+
+        .clac{
+            box-shadow: 6px 6px 12px #fff, -3px -2px 14px rgb(0 0 0 / 10%);
+            border-radius: 25px;
+            padding: 16px;
+            display: grid;
+            grid-template-columns: repeat(4,50px);
+        }
+
+        input{
+            grid-column: span 4;
+            height: 60px;
+            border: none;
+            width: 200px;
+            box-shadow: inset -1px -5px 10px #fff, inset 7px 7px 14px rgba(0,0,0,0.10);
+            background: #ecf0f3;
+            border-radius: 30px;
+            color: rgba(26,25,25);
+            text-align: end;
+            margin: 40px 0px 30px 0px;
+            padding: 20px;
+            font-size: 33px;
+            font-weight: bold;
+        }
+
+        button{
+            box-shadow: inset 3px 3px 6px #fff, 6px 6px 12px rgba(0,0,0,0.16);
+            background-color: #ecf0f3;
+            border: none;
+            border-radius: 30%;
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            color: #000;
+            font-size: 18px;
+            font-weight: bolder;
+        }
+
+        .equal{
+            width: 90px;
+            border-radius: 10%;
+            box-shadow: inset 3px 3px 6px #fff, 6px 6px 12px rgba(0,0,0,0.16);
+            background-color: darkgreen;
+            font-size: 30px;
+        }
+
+        .de{
+            font-size: 15px;
+        }
+
+        .btn{
+            background-color: darkgreen;
+        }
+
+        .co{
+            background-color: rgb(255,127,80);
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator By Using Html,Css and Javascript</h1> 
+    <div class="contanier">
+        <div class="clac">
+            <input type="text" id="inputext" placeholder="0">
+            <button onclick="clr()">C</button>
+            <button  class="de" onclick="del()">DEL</button>
+            <button onclick="calculate('%')">%</button>
+            <button onclick="calculate('/')">/</button>
+
+            <button onclick="calculate(7)">7</button>
+            <button onclick="calculate(8)">8</button>
+            <button onclick="calculate(9)">9</button>
+            <button onclick="calculate('*')">*</button>
+
+            <button class="co" onclick="calculate(4)">4</button>
+            <button class="co" onclick="calculate(5)">5</button>
+            <button class="co" onclick="calculate(6)">6</button>
+            <button class="co" onclick="calculate('-')">-</button>
+
+            <button onclick="calculate(1)">1</button>
+            <button onclick="calculate(2)">2</button>
+            <button onclick="calculate(3)">3</button>
+            <button onclick="calculate('+')">+</button>
+
+            <button class="btn" onclick="calculate('.')">.</button>
+            <button class="btn" onclick="calculate(0)">0</button>
+            <button class="equal" onclick="Result()">=</button>
+        </div>
+    </div>
+
+    <script>
+        let result = document.getElementById("inputext");
+        let calculate = (number)=>{
+            result.value += number;
+        }
+
+       let Result=()=>{
+            try{
+                result.value = eval(result.value)
+            }
+            catch(err){
+                alert("Enter the valid Input...")
+            }
+       }
+
+       function clr(){
+            result.value = " 0 ";
+       }
+
+       function del(){
+            result.value = result.value.slice(0,-1);
+       }
+    </script>
+</body>
+</html>
